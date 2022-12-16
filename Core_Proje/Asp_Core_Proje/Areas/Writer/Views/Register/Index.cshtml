@@ -1,0 +1,118 @@
+﻿@model Asp_Core_Proje.Areas.Writer.Models.UserRegisterViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Kullanıcı Kayıt</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="~/skydash/vendors/feather/feather.css">
+    <link rel="stylesheet" href="~/skydash/vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="~/skydash/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="~/skydash/css/vertical-layout-light/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="~/skydash/images/favicon.png" />
+</head>
+
+<body>
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="content-wrapper d-flex align-items-center auth px-0">
+                <div class="row w-100 mx-0">
+                    <div class="col-lg-4 mx-auto">
+                        <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+                            <div class="brand-logo">
+                                <img src="~/skydash/images/logo.svg" alt="logo">
+                            </div>
+                            <h4>Burada Yeni Misin?</h4>
+                            <h6 class="font-weight-light">Kayıt olmak kolay. Sadece birkaç dakikanı alacak.</h6>
+                            <form class="pt-3" method="post">
+                                <div class="form-group">
+                                    <label>Adınız</label>
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                    <input asp-for="Name" type="text" class="form-control form-control-lg" placeholder="Adınız">
+                                </div>
+                                <div class="form-group">
+                                    <label>Soyadınız</label>
+                                    <span asp-validation-for="Surname" class="text-danger"></span>
+                                    <input asp-for="Surname" type="text" class="form-control form-control-lg" placeholder="Soyadınız">
+                                </div>
+                                <div class="form-group">
+                                    <label>Kullanıcı Adı</label>
+                                    <span asp-validation-for="UserName" class="text-danger"></span>
+                                    <input asp-for="UserName" type="text" class="form-control form-control-lg" placeholder="Kullanıcı Adı">
+                                </div>
+                                <div class="form-group">
+                                    <label>Fotoğraf Url</label>
+                                    <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                                    <input asp-for="ImageUrl" type="text" class="form-control form-control-lg" placeholder="Fotoğraf Url">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Şifre</label>
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                    <input asp-for="Password" type="password" class="form-control form-control-lg" placeholder="Şifre">
+                                </div>
+                                <div class="form-group">
+                                    <label>Şifre Tekrar</label>
+                                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                    <input asp-for="ConfirmPassword" type="password" class="form-control form-control-lg" placeholder="Şifre tekrar">
+                                </div>
+                                <div class="form-group">
+                                    <label>Mail Adresiniz</label>
+                                    <span asp-validation-for="Mail" class="text-danger"></span>
+                                    <input asp-for="Mail" type="email" class="form-control form-control-lg" placeholder="Mail adresiniz">
+                                </div>
+                                <div class="mb-4">
+                                    <div class="form-check">
+                                        <label class="form-check-label text-muted">
+                                            <input type="checkbox" class="form-check-input" required>
+                                            Kullanıcı sözleşmesini okudum ve kabul ediyorum
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="text-danger" asp-validation-summary="ModelOnly">
+
+                                </div>
+                                <div class="mt-3">
+                                    <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">KAYIT OL</button>
+                                </div>
+                                <div class="text-center mt-4 font-weight-light">
+                                    Zaten bir hesabın var mı? <a href="/Writer/Login/Index/" class="text-primary">Giriş Yap</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- content-wrapper ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="~/skydash/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="~/skydash/js/off-canvas.js"></script>
+    <script src="~/skydash/js/hoverable-collapse.js"></script>
+    <script src="~/skydash/js/template.js"></script>
+    <script src="~/skydash/js/settings.js"></script>
+    <script src="~/skydash/js/todolist.js"></script>
+    <!-- endinject -->
+</body>
+
+</html>

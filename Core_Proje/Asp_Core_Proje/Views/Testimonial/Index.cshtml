@@ -1,0 +1,57 @@
+﻿@using EntityLayer.Concrete
+@model List<Testimonial>
+
+@{
+    ViewData["Title"] = "Referanslar";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Referanslar</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+
+                            <th> Client Name </th>
+                            <th> Unvan / Şirket </th>
+                            <th> Sil </th>
+                            <th> Detaylar </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+
+                                <td>
+                                    <img src="/refrencephotos/@item.ImageUrll" alt="image" />
+                                    <span class="pl-2">@item.ClientName</span>
+                                </td>
+                                <td> @item.Company </td>
+                                <td>
+                                    <a href="/Testimonial/DeleteTestimonial/@item.TestimonialID" class="btn btn-outline-danger btn-icon-text">
+                                        <i class="mdi mdi-alert btn-icon-prepend"></i> Sil
+                                    </a>
+                                </td>
+
+                                <td>
+                                    <a href="/Testimonial/TestimonialDetails/@item.TestimonialID" class="btn btn-outline-success btn-icon-text">
+                                        <i class="mdi mdi-upload btn-icon-prepend"></i> Detaylar
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a href="/Testimonial/AddTestimonial/" class="btn btn-outline-primary btn-icon-text">
+                    <i class="mdi mdi-file-check btn-icon-prepend"></i> Yeni Referans Ekle
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+

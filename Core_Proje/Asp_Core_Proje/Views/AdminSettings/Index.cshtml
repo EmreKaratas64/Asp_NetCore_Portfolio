@@ -1,0 +1,53 @@
+﻿@model Asp_Core_Proje.Areas.Writer.Models.UserEditViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Hesap Ayarları</h4>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>İsim</label>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                    <input type="text" asp-for="Name" class="form-control" placeholder="İsim" required>
+                </div>
+                <div class="form-group">
+                    <label>Soyisim</label>
+                    <span asp-validation-for="Surname" class="text-danger"></span>
+                    <input type="text" asp-for="Surname" class="form-control" placeholder="Soyisim" required>
+                </div>
+                <div class="form-group">
+                    <label>Şifre</label>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                    <input type="password" asp-for="Password" class="form-control" placeholder="Şifre" required>
+                </div>
+                <div class="form-group">
+                    <label>Şifre Tekrar</label>
+                    <span asp-validation-for="PasswordConfirm" class="text-danger"></span>
+                    <input type="password" asp-for="PasswordConfirm" class="form-control" placeholder="Şifre tekrar" required>
+                </div>
+                <div class="form-group">
+                    <label>Resim Yükle</label>
+                    <span asp-validation-for="Picture" class="text-danger"></span>
+                    <input type="file" asp-for="Picture" class="file-upload-default">
+                    <div class="input-group col-xs-12">
+                        <input type="text" class="form-control file-upload-info" disabled placeholder="Resim yükle">
+                        <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-info" type="button">Yükle</button>
+                        </span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-outline-success mr-2">
+                    <i class="mdi mdi-upload btn-icon-prepend"></i> Güncelle
+                </button>
+                <a href="/Dashboard/Index/" class="btn btn-dark">
+                    <i class="mdi mdi-reload btn-icon-prepend"></i> İptal
+                </a>
+            </form>
+        </div>
+    </div>
+</div>

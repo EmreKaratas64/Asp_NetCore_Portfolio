@@ -1,0 +1,46 @@
+﻿@model EntityLayer.Concrete.Experience
+
+@{
+    ViewData["Title"] = "UpdateExperience";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Deneyim Düzenle</h4>
+            @using (Html.BeginForm("UpdateExperience", "Experience", FormMethod.Post))
+            {
+                <form class="forms-sample">
+                    <div class="form-group">
+                        @Html.HiddenFor(e => e.ExperienceID)
+                        <label class="form-control-label">Deneyim Başlık</label>
+                        @Html.TextBoxFor(e => e.Name, new { @class = "form-control", required = "required", placeholder = "Deneyim başlık" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">Deneyim Tarih</label>
+                        @Html.TextBoxFor(e => e.Date, new { @class = "form-control", required = "required", placeholder = "Deneyim tarih" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">Denyim Fotoğraf</label>
+                        @Html.TextBoxFor(e => e.ImageUrl, new { @class = "form-control", required = "required", placeholder = "Deneyim fotoğraf" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">Denyim Açıklama</label>
+                        @Html.TextAreaFor(e => e.Description, new { @class = "form-control", required = "required", placeholder = "Deneyim açıklama", rows = "5" })
+                    </div>
+                    <br />
+                    <button type="submit" class="btn btn-outline-success btn-icon-text">
+                        <i class="mdi mdi-upload btn-icon-prepend"></i> Deneyimi Düzenle
+                    </button>
+                    <a href="/Experience/Index/" class="btn btn-dark btn-icon-text" style="float:right">
+                        <i class="mdi mdi-reload btn-icon-prepend"></i> İptal Et
+                    </a>
+                </form>
+            }
+
+        </div>
+    </div>
+</div>
