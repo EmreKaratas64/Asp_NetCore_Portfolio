@@ -1,0 +1,32 @@
+﻿@using EntityLayer.Concrete
+@model List<WriterMessage>
+
+<div class="col-md-4 stretch-card grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-title mb-0">Gelen Son 7 Mesaj</p>
+            <div class="table-responsive">
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th class="pl-0  pb-2 border-bottom">Gönderen</th>
+                            <th class="border-bottom pb-2">Konu</th>
+                            <th class="border-bottom pb-2">Tarih</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="pl-0">@item.SenderName</td>
+                                <td><p class="mb-0"><span class="font-weight-bold mr-2">@item.Subject</span></p></td>
+                                <td class="text-muted">@DateTime.Parse(item.Date.ToString()).ToString("dd/MM/yyyy")</td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

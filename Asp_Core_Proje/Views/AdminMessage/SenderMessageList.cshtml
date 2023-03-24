@@ -1,0 +1,55 @@
+﻿@using EntityLayer.Concrete
+@model List<WriterMessage>
+
+@{
+    ViewData["Title"] = "SenderMessageList";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yazar - Admin Giden Kutusu</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Alıcı</th>
+                            <th>Konu</th>
+                            <th>Tarih</th>
+                            <th>Sil</th>
+                            <th>Mesajı Gör</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <th>@item.WriterMessageID</th>
+                                <td>@item.ReceiverName</td>
+                                <td>@item.Subject</td>
+                                <td>@DateTime.Parse(item.Date.ToString()).ToString("dd/MM/yyyy")</td>
+                                <td>
+                                    <a href="/AdminMessage/DeleteAdminMessage/@item.WriterMessageID" class="btn btn-outline-danger btn-icon-text">
+                                        <i class="mdi mdi-alert btn-icon-prepend"></i> Sil
+                                    </a>
+                                </td>
+
+                                <td>
+                                    <a href="/AdminMessage/ShowSenderMessage/@item.WriterMessageID" class="btn btn-outline-success btn-icon-text">
+                                        <i class="mdi mdi-upload btn-icon-prepend"></i> Mesajı Gör
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

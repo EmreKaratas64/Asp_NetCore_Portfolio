@@ -1,0 +1,39 @@
+﻿@model EntityLayer.Concrete.WriterMessage
+
+@{
+    ViewData["Title"] = "NewMessage";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yeni Mesaj Gönder</h4>
+
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <label class="form-control-label">Konu</label>
+                    @Html.TextBoxFor(s => s.Subject, new { @class = "form-control", placeholder = "Konu",required= "required" })
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label">Alıcı Mail</label>
+                    @Html.TextBoxFor(s => s.Receiver, new { @class = "form-control", placeholder = "Alıcı mail", required = "required" })
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label">İçerik</label>
+                    @Html.TextAreaFor(s => s.MessageContent, new { @class = "form-control", placeholder = "İçerik", rows = "10", required = "required" })
+                </div>
+                <br />
+                <button type="submit" class="btn btn-outline-primary btn-icon-text">
+                    <i class="mdi mdi-send"></i> Gönder
+                </button>
+                <a href="/AdminMessage/SenderMessageList/" class="btn btn-dark btn-icon-text">
+                    <i class="mdi mdi-reload btn-icon-prepend"></i> İptal Et
+                </a>
+            </form>
+
+
+        </div>
+    </div>
+</div>
+

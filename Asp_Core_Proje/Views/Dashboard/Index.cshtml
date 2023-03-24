@@ -1,0 +1,149 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Corona Admin</title>
+    
+</head>
+<body>
+
+
+    <div class="content-wrapper">
+
+        @await Component.InvokeAsync("FeatureStatistics")
+
+        <div class="row">
+            <div class="col-md-4 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Bütçe Geçmişi</h4>
+                        <canvas id="transaction-history" class="transaction-chart"></canvas>
+                        <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
+                            <div class="text-md-center text-xl-left">
+                                <h6 class="mb-1">Proje Gelirleri</h6>
+                                <p class="text-muted mb-0">07 Jan 2019, 09:12AM</p>
+                            </div>
+                            <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+                                <h6 class="font-weight-bold mb-0">$236</h6>
+                            </div>
+                        </div>
+                        <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
+                            <div class="text-md-center text-xl-left">
+                                <h6 class="mb-1">Reklam Gelirleri</h6>
+                                <p class="text-muted mb-0">07 Jan 2019, 09:12AM</p>
+                            </div>
+                            <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+                                <h6 class="font-weight-bold mb-0">$593</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @await Component.InvokeAsync("ProjectsInProgress")
+
+        </div>
+
+
+        @await Component.InvokeAsync("StatisticsDashboard2") 
+
+      
+        @await Component.InvokeAsync("ProjectList")
+        
+    <div class="row">
+
+        @await Component.InvokeAsync("MessageList")
+
+
+        @await Component.InvokeAsync("SlideList")
+
+        @await Component.InvokeAsync("ToDoListPanel")
+
+    </div>
+    
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Ziyaret Edilen Ülkeler</h4>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <i class="flag-icon flag-icon-tr"></i>
+                                                </td>
+                                                <td>Türkiye</td>
+                                                <td class="text-right"> 1500 </td>
+                                                <td class="text-right font-weight-medium"> 56.35% </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <i class="flag-icon flag-icon-de"></i>
+                                                </td>
+                                                <td>Almanya</td>
+                                                <td class="text-right"> 800 </td>
+                                                <td class="text-right font-weight-medium"> 33.25% </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <i class="flag-icon flag-icon-au"></i>
+                                                </td>
+                                                <td>Avusturalya</td>
+                                                <td class="text-right"> 760 </td>
+                                                <td class="text-right font-weight-medium"> 15.45% </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <i class="flag-icon flag-icon-gb"></i>
+                                                </td>
+                                                <td>İngiltere</td>
+                                                <td class="text-right"> 450 </td>
+                                                <td class="text-right font-weight-medium"> 25.00% </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <i class="flag-icon flag-icon-ro"></i>
+                                                </td>
+                                                <td>Romanya</td>
+                                                <td class="text-right"> 620 </td>
+                                                <td class="text-right font-weight-medium"> 10.25% </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <i class="flag-icon flag-icon-br"></i>
+                                                </td>
+                                                <td>Brezilya</td>
+                                                <td class="text-right"> 230 </td>
+                                                <td class="text-right font-weight-medium"> 75.00% </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div id="audience-map" class="vector-map"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- content-wrapper ends -->
+   
+
+   
+</body>
+</html>
+

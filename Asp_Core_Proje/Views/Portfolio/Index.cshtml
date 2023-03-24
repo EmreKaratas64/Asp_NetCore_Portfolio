@@ -1,0 +1,183 @@
+﻿@using EntityLayer.Concrete
+@model List<Portfolio> 
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+    string bg_class_for_status = "badge-warning";
+    string text_of_status = "In progress";
+    string bg_class = "bg-warning";
+}
+    
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Projeler</h4>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th> Proje Platformu </th>
+                            <th> Proje Adı </th>
+                            <th> Ücret </th>
+                            <th> Durum </th>
+                            <th> Tamamlanma Oranı </th>
+                            <th> Sil </th>
+                            <th> Düzenle </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+
+                               @if(item.Status == true)
+                               {
+                                   bg_class_for_status = "badge-success";
+                                   text_of_status = "Tamamlandı";
+                                   bg_class = "bg-success";
+                               }
+                               else
+                               {
+                                   bg_class_for_status = "badge-warning";
+                                   text_of_status = "Gelişmede";
+                                   bg_class = "bg-warning";
+                               }
+
+                                <td class="py-1">
+                                    <img src="@item.Platform" alt="Programlama Dili" />
+                                </td>
+
+                                <td> @item.Name </td>
+
+                                <td>@item.Price ₺</td>
+
+                                <td><label class="badge @bg_class_for_status">@text_of_status</label></td>
+
+                                <td>
+                                    <div class="progress">
+                                        <div class="progress-bar @bg_class" role="progressbar" style="width: @item.Value%" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a href="/Portfolio/DeletePortfolio/@item.PortfolioID" class="btn btn-outline-danger btn-icon-text">
+                                        <i class="mdi mdi-alert btn-icon-prepend"></i> Sil
+                                    </a>
+                                </td>
+
+                                <td>
+                                    <a href="/Portfolio/UpdatePortfolio/@item.PortfolioID" class="btn btn-outline-success btn-icon-text">
+                                        <i class="mdi mdi-upload btn-icon-prepend"></i> Düzenle
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+
+                <br />
+                <a href="/Portfolio/AddPortfolio/" class="btn btn-outline-primary btn-icon-text">
+                    <i class="mdi mdi-file-check btn-icon-prepend"></i> Yeni Proje Ekle
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @*<div class="table-responsive">
+        <table class="table align-items-center table-dark table-flush">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col" class="sort" data-sort="name">Proje</th>
+                    <th scope="col" class="sort" data-sort="budget">Ücret</th>
+                    <th scope="col" class="sort" data-sort="status">Durum</th>
+                    <th scope="col" class="sort" data-sort="completion">Tamamlanma Oranı</th>
+                    <th scope="col" class="sort" data-sort="completion">Sil</th>
+                    <th scope="col" class="sort" data-sort="completion">Düzenle</th>
+                </tr>
+            </thead>
+            <tbody class="list">
+                @foreach (var p in Model)
+                {
+                    if (p.Status == true)
+                    {
+                        bg_class_for_status = "bg-success";
+                        text_of_status = "bitti";
+                    }
+                    else
+                    {
+                        bg_class_for_status = "bg-warning";
+                        text_of_status = "devam ediyor";
+                    }
+                    <tr>
+                        <th scope="row">
+                            <div class="media align-items-center">
+                                <a href="#" class="avatar rounded-circle mr-3">
+                                    <img alt="Image placeholder" src="@p.Platform">
+                                </a>
+                                <div class="media-body">
+                                    <span class="name mb-0 text-sm">@p.Name</span>
+                                </div>
+                            </div>
+                        </th>
+
+                        <td class="budget">
+                            @p.Price ₺
+                        </td>
+
+                        <td>
+                            <span class="badge badge-dot mr-4">
+                                <i class="@bg_class_for_status"></i>
+                                <span class="status">@text_of_status</span>
+                            </span>
+                        </td>
+
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <span class="completion mr-2">@p.Value%</span>
+                                <div>
+                                    <div class="progress">
+                                        <div class="progress-bar @bg_class_for_status" role="progressbar" aria-valuenow="@p.Value" aria-valuemin="0" aria-valuemax="100" style="width: @p.Value%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <a href="/Portfolio/DeletePortfolio/@p.PortfolioID" class="btn btn-outline-danger" onclick="return confirm('Silmek istediğinize emin misiniz?');" ><i class="fas fa-trash"></i>&nbsp; Sil</a>
+                        </td>
+
+                        <td>
+                            <a href="/Portfolio/UpdatePortfolio/@p.PortfolioID" class="btn btn-outline-success"><i class="fas fa-edit"></i>&nbsp; Düzenle</a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+        <a href="/Portfolio/AddPortfolio/" class="btn btn-primary m-3"><i class="fas fa-plus-circle"></i>&nbsp; Yeni Proje Ekle</a>
+    </div>*@
+
+

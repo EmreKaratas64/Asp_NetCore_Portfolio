@@ -1,0 +1,108 @@
+﻿@using EntityLayer.Concrete
+@model List<Skill>
+
+<style>
+    #spec-card {
+        box-shadow: 4px 4px 18px rgba(0,0,0,0.45);
+    }
+        #spec-card .list-group-item {
+            color: #151515;
+            letter-spacing: 2px;
+            line-height: 2rem;
+            font-size: 1.2rem;
+            border:none;
+            padding: 1rem 1rem;
+        }
+</style>
+
+<div class="section px-3 px-lg-4 pt-5" id="skills">
+    <div class="container-narrow">
+        <div class="text-center mb-5">
+            <h2 class="marker marker-center">Yetkinlikler</h2>
+        </div>
+        <div class="text-center">
+            <p class="mx-auto mb-3" style="max-width:800px">Sürekli gelişen ve yenilenen yazılım dünyasına uyum sağlayarak kendimi geliştirmekteyim. Web ve Masaüstü uygulamalarında ve bu uygulamalar için gerekli olan alanlarda yetkinim.</p>
+        </div>
+        <div class="p-3">
+            <div class="row">
+                @*@foreach (var item in Model)
+        {
+            <div class="col-md-6">
+                <div class="py-1">
+                    <div class="d-flex text-small fw-bolder"><span class="me-auto">@item.Title</span><span>@item.Value%</span></div>
+                    <div class="progress my-1">
+                        <div class="progress-bar bg-primary" role="progressbar" data-aos="zoom-in-right" data-aos-delay="100" data-aos-anchor=".skills-section" style="width: @item.Value%" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+        }*@
+
+                <div class="col-md-4 mb-2">
+                    <div id="spec-card" class="card" style="width: 18rem; border-radius:15px; height:270px">
+                        <h5 class="m-2" style="text-shadow:1px 1px 1.5px grey;">Back-End</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><img src="~/Template/images/skills/AspFramework.png" style="width:35px" /> Asp.Net Framework</li>
+                            <li class="list-group-item"><img src="~/Template/images/skills/AspCore.png" style="width:35px" /> Asp.Net Core</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-2">
+                    <div id="spec-card" class="card" style="width: 18rem; border-radius: 15px; height:270px">
+                        <h5 class="m-2" style="text-shadow:1px 1px 1.5px grey;">Front-End</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><img src="~/Template/images/skills/html.png" style="width:35px" /> HTML5</li>
+                            <li class="list-group-item"><img src="~/Template/images/skills/css.png" style="width:35px" /> CSS3</li>
+                            <li class="list-group-item"><img src="~/Template/images/skills/javascript.png" style="width:35px" /> Javascript</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-2">
+                    <div id="spec-card" class="card" style="width: 18rem; border-radius: 15px; height:270px">
+                        <h5 class="m-2" style="text-shadow:1px 1px 1.5px grey;">Araçlar</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><img src="~/Template/images/skills/visualStudio.png" style="width:35px" /> Visual Studio</li>
+                            <li class="list-group-item"><img src="~/Template/images/skills/visualStudioCode.png" style="width:35px" /> Visual Studio Code</li>
+                            <li class="list-group-item"><img src="~/Template/images/skills/swaggerr.png" style="width:35px" /> Swagger</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-2">
+                    <div id="spec-card" class="card" style="width: 18rem; border-radius: 15px; height:270px">
+                        <h5 class="m-2" style="text-shadow:1px 1px 1.5px grey;">Veri Tabanı</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><img src="~/Template/images/skills/MySql.png" style="width:35px" /> MsSql</li>
+                            <li class="list-group-item"><img src="~/Template/images/skills/mysql3.png" style="width:35px" /> MySql</li>
+                            <li class="list-group-item"><img src="~/Template/images/skills/sqllite.png" style="width:35px" /> SqlLite</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-2">
+                    <div id="spec-card" class="card" style="width: 18rem; border-radius: 15px; height:270px">
+                        <h5 class="m-2" style="text-shadow:1px 1px 1.5px grey;">Yazılım Geliştirme Metodları</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><img src="~/Template/images/skills/Agile.png" style="width:35px" /> Agile Geliştirme</li>
+                            <li class="list-group-item"><img src="~/Template/images/skills/OOP.png" style="width:35px" /> Nesne Tabanlı Programlama</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-2">
+                    <div id="spec-card" class="card" style="width: 18rem; border-radius: 15px; height:270px">
+                        <h5 class="m-2" style="text-shadow:1px 1px 1.5px grey;">Programlama Dilleri</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><img src="~/Template/images/skills/CSharp.png" style="width:35px" /> C#</li>
+                            <li class="list-group-item"><img src="~/Template/images/skills/javascript.png" style="width:35px" /> Javascript</li>
+                            <li class="list-group-item"><img src="~/Template/images/skills/python.png" style="width:35px" /> Python</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

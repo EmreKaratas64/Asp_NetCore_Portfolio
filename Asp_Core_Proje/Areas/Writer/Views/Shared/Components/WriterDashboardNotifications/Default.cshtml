@@ -1,0 +1,48 @@
+﻿@using EntityLayer.Concrete
+@model List<Announcement>
+
+@{
+    string bg_class = "bg-info";
+}
+
+
+<div class="col-md-4 stretch-card grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-title">Son 5 Bildirim</p>
+            <ul class="icon-data-list">
+                @foreach (var item in Model)
+                {
+                    if (item.status.ToLower() == "yeni")
+                    {
+                        bg_class = "bg-warning";
+                    }
+                    else if (item.status.ToLower() == "eski")
+                    {
+                        bg_class = "bg-success";
+                    }
+                    else if (item.status.ToLower() == "proje")
+                    {
+                        bg_class = "bg-info";
+                    }
+                    else
+                    {
+                        bg_class = "bg-danger";
+                    }
+
+                    <li>
+                        <div class="d-flex">
+                            <img src="~/skydash/images/file-icons/128/notificatino-2.png" alt="user" class="@bg_class">
+                            <div>
+                                <p class="text-info mb-1">@item.Title</p>
+                                <p class="mb-0">@item.Content.Substring(0,25) ...</p>
+                                <small>@DateTime.Parse(item.Date.ToString()).ToString("dd/MM/yyyy")</small>
+                            </div>
+                        </div>
+                    </li>
+                }
+
+            </ul>
+        </div>
+    </div>
+</div>

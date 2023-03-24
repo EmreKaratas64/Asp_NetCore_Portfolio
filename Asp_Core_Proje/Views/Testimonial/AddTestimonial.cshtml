@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "AddTestimonial";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yeni Referans Ekle</h4>
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <label class="form-control-label">İsim Soyisim</label>
+                    <input type="text" class="form-control" name="ClientName" placeholder="İsim soyisim" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label">Unvan / Şirket</label>
+                    <input type="text" name="Company" class="form-control" placeholder="Unvan / Şirket" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label">Resim Url</label>
+                    <input type="text" name="ImageUrll" class="form-control" placeholder="Resim Url" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label">Yorum</label>
+                    <textarea type="text" name="Comment" class="form-control" placeholder="Yorum" required rows="10"> </textarea>
+                </div>
+                <br />
+                <button type="submit" class="btn btn-outline-primary btn-icon-text">
+                    <i class="mdi mdi-file-check btn-icon-prepend"></i> Yeni Referans Ekle
+                </button>
+                <a href="/Testimonial/Index/" class="btn btn-dark btn-icon-text">
+                    <i class="mdi mdi-reload btn-icon-prepend"></i> İptal Et
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+
